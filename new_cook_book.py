@@ -8,10 +8,14 @@ def get_shop_list_by_dishes(dishes, person_count):
             for ing_dish in cook_book[dish]:
             
                 prod = ing_dish['ingredient_name']
-                ings_shop_list.setdefault(prod, [])
+                #ings_shop_list.setdefault(prod, [])
                 ings = int(ing_dish['quantity']) * person_count
                 v = {'quantity': ings, 'measure': ing_dish['measure']}        
-                ings_shop_list[prod] = v
+                
+                if prod in ings_shop_list:
+                    ings_shop_list[prod]['quantity'] += ings
+                else:
+                    ings_shop_list[prod] = v   
         else:
             print(f'Блюда "{dish}" нет в книге рецептов')                
     
