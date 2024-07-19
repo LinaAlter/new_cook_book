@@ -1,8 +1,7 @@
 import pprint
 
     
-def get_shop_list_by_dishes(dishes, person_count):       # функция составляет список покупок по названию блюда и количеству персон
-    
+def get_shop_list_by_dishes(dishes, person_count):      
     ings_shop_list = {}
     for dish in dishes:
         if dish in cook_book:     
